@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RollCall</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-app="rollCall">
+  <h1>RollCall</h1>
+  <p class="desc">Check your students attendance. Just mark the box next to their name if they are here.</p> 
+  <p class="desc">Add a student if you need more, or remove some if you have too many.</p>
+  <main ng-controller="studentController">
+    <input type="text" placeholder="First Name" ng-model="newStudent.firstName"></input> 
+    <input type="text" placeholder="Last Name" ng-model="newStudent.lastName"></input> 
+    <button class="add-button" ng-click="addStudent()">Add</button>
+    <ul class="student-list">
+      <li ng-repeat="student in students">
+      {{ student.firstName | capitalize }} {{ student.lastName | capitalize }} 
+      <input type="checkbox" ng-model="student.present"></input>
+      <button ng-click="removeStudent($index)">Remove</button>
+      </li>
+    </ul>
+    <div class="attendance">
+      <div class="list-container">
+       <h2>Present</h2>
+       <ul class="attendance-lists">
+         <li ng-repeat="student in students | present">
+           {{ student.firstName | capitalize }} {{ student.lastName | capitalize }},
+         </li>
+       </ul>
+     </div>
+     <div class="list-container">
+       <h2>Absent</h2>
+       <ul class="attendance-lists">
+         <li ng-repeat="student in students | absent">
+           {{ student.firstName | capitalize }} {{ student.lastName | capitalize }},
+         </li>
+       </ul>
+     </div>
+    </div>
+  </main>
+</body>
+</html>
