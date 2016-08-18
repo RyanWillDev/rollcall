@@ -1,0 +1,14 @@
+{
+  "name": "rollcall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Will",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
