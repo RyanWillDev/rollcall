@@ -13,7 +13,7 @@ var app = angular.module('rollCall', [])
     // Validates newStudent to avoid adding empty names and a typeError from being logged to console
     function nameIsValid() {
       var ns = $scope.newStudent;
-      return ns !== undefined && ns.firstName !== '' && ns.lastName !== '';
+      return ns !== undefined && ns.firstName.length > 0 && ns.lastName.length > 0;
     }
 
     if (nameIsValid()) {
