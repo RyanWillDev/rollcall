@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-  <script src="app.js"></script>
+  <script src="app/app.js"></script>
 </head>
 <body ng-app="rollCall">
   <h1>RollCall</h1>
@@ -17,29 +17,21 @@
     <input type="text" placeholder="Last Name" ng-model="newStudent.lastName"></input> 
     <button class="add-button" ng-click="addStudent()">Add</button>
     <ul class="student-list">
-      <li ng-repeat="student in students">
-      {{ student.firstName | capitalize }} {{ student.lastName | capitalize }} 
-      <input type="checkbox" ng-model="student.present"></input>
-      <button ng-click="removeStudent($index)">Remove</button>
-      </li>
+      <student ng-repeat="student in students"></student>
     </ul>
     <div class="attendance">
       <div class="list-container">
-       <h2>Present</h2>
-       <ul class="attendance-lists">
-         <li ng-repeat="student in students | present">
-           {{ student.firstName | capitalize }} {{ student.lastName | capitalize }},
-         </li>
-       </ul>
-     </div>
-     <div class="list-container">
-       <h2>Absent</h2>
-       <ul class="attendance-lists">
-         <li ng-repeat="student in students | absent">
-           {{ student.firstName | capitalize }} {{ student.lastName | capitalize }},
-         </li>
-       </ul>
-     </div>
+        <h2>Present</h2>
+        <ul class="attendance-lists">
+          <present-student ng-repeat="student in students | present"></present-student>
+        </ul>
+      </div>
+      <div class="list-container">
+        <h2>Absent</h2>
+        <ul class="attendance-lists">
+          <absent-student ng-repeat="student in students | absent"></absent-student>
+        </ul>
+      </div>
     </div>
   </main>
 </body>

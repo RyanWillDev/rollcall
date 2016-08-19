@@ -74,8 +74,8 @@ button {
   width: 100%;
 }
 
-.attendance-lists > li {
-  padding: 8px;
+.attendance-lists li {
+  padding: 4px;
 }
 
 

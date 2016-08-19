@@ -13,7 +13,8 @@ var app = angular.module('rollCall', [])
     // Validates newStudent to avoid adding empty names and a typeError from being logged to console
     function nameIsValid() {
       var ns = $scope.newStudent;
-      return ns !== undefined && ns.firstName.length > 0 && ns.lastName.length > 0;
+      return (ns !== undefined && ns.firstName !== undefined
+        && ns.firstName.length > 0 && ns.lastName !== undefined && ns.lastName.length > 0);
     }
 
     if (nameIsValid()) {
@@ -25,6 +26,24 @@ var app = angular.module('rollCall', [])
 
   $scope.removeStudent = function(index) {
     $scope.students.splice(index, 1);
+  };
+})
+.directive('student', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'app/partials/student.html'
+  };
+})
+.directive('absentStudent', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'app/partials/absent-student.html'
+  };
+})
+.directive('presentStudent', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'app/partials/present-student.html'
   };
 })
 .filter('capitalize', function() {

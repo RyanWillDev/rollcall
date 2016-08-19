@@ -1,0 +1,5 @@
+<li>
+  {{ student.firstName | capitalize }} {{ student.lastName | capitalize }} 
+  <input type="checkbox" ng-model="student.present"></input>
+  <button ng-click="removeStudent($index)">Remove</button>
+</li>
