@@ -1,0 +1,26 @@
+{
+  "name": "rollcall",
+  "version": "1.0.0",
+  "description": "An app I made to practice Angular. It allows you add, remove, and mark students present and filters the students into corresponding lists.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanWillDev/rollcall.git"
+  },
+  "author": "Ryan Will",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RyanWillDev/rollcall/issues"
+  },
+  "homepage": "https://github.com/RyanWillDev/rollcall#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-html2js": "^0.3.6"
+  }
+}

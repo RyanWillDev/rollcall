@@ -1,4 +1,14 @@
-var app = angular.module('rollCall', [])
+angular.module('templates-main', []).run(['$templateCache', function($templateCache) {
+  "use strict";
+  $templateCache.put("partials/absent-student.html",
+    "<li>{{ student.firstName | capitalize }} {{ student.lastName | capitalize }},</li>");
+  $templateCache.put("partials/present-student.html",
+    "<li>{{ student.firstName | capitalize }} {{ student.lastName | capitalize }},</li>");
+  $templateCache.put("partials/student.html",
+    "<li>{{ student.firstName | capitalize }} {{ student.lastName | capitalize }} <input type=checkbox ng-model=student.present><button ng-click=removeStudent($index)>Remove</button></li>");
+}]);
+
+var app = angular.module('rollCall', ['templates-main'])
 .controller('studentController', function($scope) {
   $scope.students = [{ firstName: 'ryan', lastName: 'will', present: false },
     { firstName: 'michael', lastName: 'eatherly', present: false },
@@ -31,19 +41,19 @@ var app = angular.module('rollCall', [])
 .directive('student', function() {
   return {
     restrict: 'E',
-    templateUrl: 'app/partials/student.html'
+    templateUrl: 'partials/student.html'
   };
 })
 .directive('absentStudent', function() {
   return {
     restrict: 'E',
-    templateUrl: 'app/partials/absent-student.html'
+    templateUrl: 'partials/absent-student.html'
   };
 })
 .directive('presentStudent', function() {
   return {
     restrict: 'E',
-    templateUrl: 'app/partials/present-student.html'
+    templateUrl: 'partials/present-student.html'
   };
 })
 .filter('capitalize', function() {
